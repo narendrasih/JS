@@ -12,7 +12,7 @@ if (found) {
     var Modal = document.createElement("div")
     Modal.id = "mainModal"
     Modal.className = "mainModal"
-    Modal.style = "position: fixed; z-index: 2147483647; left: 0px; top: 0px; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); display: none;"
+    Modal.style = "position: fixed; z-index: 2147483647; left: 0px; top: 0px; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,300,0.5); display: none;"
     var ModalContent = document.createElement("div")
     ModalContent.className = "modal-content"
 	ModalContent.id = "ModalContent"
@@ -21,7 +21,7 @@ if (found) {
     Close.innerHTML = "&times;"
     var btn = document.createElement("button")
     btn.id = "ModalButton"
-    btn.innerText = "View Answers"
+    btn.innerText = "Lihat Jawaban"
     btn.onclick = function() {
         Modal.style.display = "block";
     }
@@ -132,13 +132,13 @@ if (found) {
 						r = s.structure.kind,
 						n = s.structure.answer,
 						c = Encoding.decode(n);
-						ModalContent.insertAdjacentHTML( 'beforeend', `<b>Question: </b>`)
+						ModalContent.insertAdjacentHTML( 'beforeend', `<b>Pertanyaan: </b>`)
 						ModalContent.insertAdjacentHTML( 'beforeend', `${s.structure.query.text}<br>`)
 						if (c[0] == "[") {
 							newc = c.slice(1, c.length-1)
 							newc = newc.split(",");
 							// c has been turned into an array :)
-							ModalContent.insertAdjacentHTML( 'beforeend', `<b>Answers:</b><br>`)
+							ModalContent.insertAdjacentHTML( 'beforeend', `<b>Jawaban:</b><br>`)
 							for (let i = 0; i < newc.length; i++) {
 								ModalContent.insertAdjacentHTML( 'beforeend', `${s.structure.options[Number(newc[i])].text || s.structure.options[Number(newc[i])].media[0].url} <br>`)
 							}
